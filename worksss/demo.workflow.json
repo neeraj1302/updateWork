@@ -1,0 +1,61 @@
+{
+  "orderPreparation": {
+    "parameters": {
+      "test1": {
+        "type": "String",
+        "default": "\"str1\""
+      },
+      "test2": {
+        "type": "Boolean",
+        "default": "true"
+      },
+      "test3": {
+        "type": "Number",
+        "default": "12"
+      },
+      "test4": {
+        "type": "List",
+        "listParameters": {
+          "list1": {
+            "type": "String",
+            "default": "val1"
+          }
+        }
+      },
+      "test5": {
+        "type": "Map",
+        "listParameters": {
+          "map1": {
+            "type": "String",
+            "default": "val1"
+          }
+        }
+      }
+    },
+    "allowUndeclared": false
+  },
+  "instructions": [
+    {
+      "TYPE": "Execute.Named",
+      "jobName": "job",
+      "label": "job"
+    }
+  ],
+  "timeZone": "Asia/Calcutta",
+  "jobs": {
+    "job": {
+      "agentName": "primaryAgent",
+      "withSubagentClusterIdExpr": false,
+      "executable": {
+        "TYPE": "ShellScriptExecutable",
+        "script": "ping -n 50 localhost",
+        "v1Compatible": false
+      },
+      "skipIfNoAdmissionForOrderDay": false,
+      "parallelism": 1,
+      "graceTimeout": 1,
+      "failOnErrWritten": false,
+      "warnOnErrWritten": false
+    }
+  }
+}
